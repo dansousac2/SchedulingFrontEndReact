@@ -2,26 +2,26 @@ import React from "react";
 import "./ViewPlaces.css";
 import { withRouter } from 'react-router-dom';
 import axios from "axios";
-import EventsTable from "../../../componentes/EventsTable";
+import PlacesTable from "../../../componentes/PlacesTable";
 
 class ViewPlaces extends React.Component {
     state = {
-        events:[]
+        places:[]
     }
 
     find = () => {
-        axios.get('http://localhost:8080/api/event/listAll',
+        axios.get('http://localhost:8080/api/place',
         ).then( Response => {
-            const events = Response.data;
-            this.setState({events});
-            console.log(events);
+            const places = Response.data;
+            this.setState({places});
+            console.log(places);
         }).catch( error => {
             console.log(error.Response)
         });
     }
 
-    delete = (eventId) => {
-        axios.delete(`http://localhost:8080/api/event/delete/${eventId}`
+    delete = (placeId) => {
+        axios.delete(`http://localhost:8080/api/event/delete/${placeId}`
         ).then( Response => {
             this.find();
         }).catch( error => {
@@ -29,8 +29,8 @@ class ViewPlaces extends React.Component {
         });
     }
 
-    edit = (eventId) => {
-        this.props.history.push(`/updateEvent/${eventId}`);
+    edit = (placeId) => {
+        this.props.history.push(`/updatePlace/${placeId}`);
     }
 
     render(){
@@ -39,10 +39,10 @@ class ViewPlaces extends React.Component {
                 <header className="App-header">
                     <fieldset>
                         <br/>
-                        <button type="button" className="btn btn-primary btn-lg" onClick={this.find} >Find All Created Events</button>
+                        <button type="button" className="btn btn-primary btn-lg" onClick={this.find} >Find All Places</button>
                         <br/>
                         <br/>
-                        <EventsTable events={this.state.events} delete={this.delete} edit={this.edit} />
+                        <PlacesTable places={this.state.places} delete={this.delete} edit={this.edit} />
                     </fieldset>
                 </header>
             </div>

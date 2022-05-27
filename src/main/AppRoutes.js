@@ -22,12 +22,12 @@ function AppRoutes() {
 
             <Route component = { ListPlaces } path="/listPlaces" />
             <Route component = { CreatePlace } path="/createPlace" />
-            <Route component = { UpdatePlace } path="/updatePlace/id:" />
+            <Route component = { UpdatePlace } path="/updatePlace/:id" />
             <Route component = { DeletePlace } path="/deletePlace" />
 
             <Route component = { ListSports } path="/listSports" />
             <Route component = { CreateSport } path="/createSport" />
-            <Route component = { UpdateSport } path="/updateSport/id:" />
+            <Route component = { UpdateSport } path="/updateSport/:id" />
             <Route component = { DeleteSport } path="/deleteSport" />
         </BrowserRouter>
     )

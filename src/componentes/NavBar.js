@@ -16,12 +16,12 @@ function NavBar (props) {
 
                         <NavbarItem href="/listPlaces" label="Places" />
                         <NavbarItem href="/createPlace" label="Create Place" />
-                        <NavbarItem href="/updatePlace/id:" label="Update Place" />
+                        <NavbarItem href="/updatePlace/:id" label="Update Place" />
                         <NavbarItem href="/deletePlace" label="Delete Place" />
 
                         <NavbarItem href="/listSports" label="Sports" />
                         <NavbarItem href="/createSport" label="Create Sport" />
-                        <NavbarItem href="/updateSport/id:" label="Update Sport" />
+                        <NavbarItem href="/updateSport/:id" label="Update Sport" />
                         <NavbarItem href="/deleteSport" label="Delete Sport" />
                     </ul>
                 </div>

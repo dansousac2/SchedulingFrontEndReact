@@ -3,26 +3,26 @@ import "./ViewSports.css";
 import 'bootswatch/dist/vapor/bootstrap.css';
 import { withRouter } from 'react-router-dom';
 import axios from "axios";
-import EventsTable from "../../../componentes/EventsTable";
+import SportsTable from "../../../componentes/SportsTable";
 
 class ViewSports extends React.Component {
     state = {
-        events:[]
+        sports:[]
     }
 
     find = () => {
-        axios.get('http://localhost:8080/api/event/listAll',
+        axios.get('http://localhost:8080/api/sport',
         ).then( Response => {
-            const events = Response.data;
-            this.setState({events});
-            console.log(events);
+            const sports = Response.data;
+            this.setState({sports});
+            console.log(sports);
         }).catch( error => {
             console.log(error.Response)
         });
     }
 
-    delete = (eventId) => {
-        axios.delete(`http://localhost:8080/api/event/delete/${eventId}`
+    delete = (sportId) => {
+        axios.delete(`http://localhost:8080/api/event/delete/${sportId}`
         ).then( Response => {
             this.find();
         }).catch( error => {
@@ -30,8 +30,8 @@ class ViewSports extends React.Component {
         });
     }
 
-    edit = (eventId) => {
-        this.props.history.push(`/updateEvent/${eventId}`);
+    edit = (sportId) => {
+        this.props.history.push(`/updateEvent/${sportId}`);
     }
 
     render(){
@@ -40,10 +40,10 @@ class ViewSports extends React.Component {
                 <header className="App-header">
                     <fieldset>
                         <br/>
-                        <button type="button" className="btn btn-primary btn-lg" onClick={this.find} >Find All Created Events</button>
+                        <button type="button" className="btn btn-primary btn-lg" onClick={this.find} >Find All Sports</button>
                         <br/>
                         <br/>
-                        <EventsTable events={this.state.events} delete={this.delete} edit={this.edit} />
+                        <SportsTable sports={this.state.sports} delete={this.delete} edit={this.edit} />
                     </fieldset>
                 </header>
             </div>

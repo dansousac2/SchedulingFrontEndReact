@@ -39,7 +39,7 @@ export default class UpdateSport extends React.Component {
             <div>
                 <header className="App-header">
                     <fieldset>
-                        <legend><h2>Update Event</h2></legend>
+                        <legend><h2>Update Sport</h2></legend>
                         <FormGroup label='Event ID' htmlFor='lab00'>
                             <input className="form-control form-control-lg" type="text" placeholder="ID" id="lab00"
                             onChange={(e) => {this.setState({id: e.target.value})}}/>
