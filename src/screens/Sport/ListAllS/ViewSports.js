@@ -22,7 +22,7 @@ class ViewSports extends React.Component {
     }
 
     delete = (sportId) => {
-        axios.delete(`http://localhost:8080/api/event/delete/${sportId}`
+        axios.delete(`http://localhost:8080/api/sport/${sportId}`
         ).then( Response => {
             this.find();
         }).catch( error => {
@@ -31,7 +31,7 @@ class ViewSports extends React.Component {
     }
 
     edit = (sportId) => {
-        this.props.history.push(`/updateEvent/${sportId}`);
+        this.props.history.push(`/updateSport/${sportId}`);
     }
 
     render(){

@@ -21,7 +21,7 @@ class ViewPlaces extends React.Component {
     }
 
     delete = (placeId) => {
-        axios.delete(`http://localhost:8080/api/event/delete/${placeId}`
+        axios.delete(`http://localhost:8080/api/place/${placeId}`
         ).then( Response => {
             this.find();
         }).catch( error => {

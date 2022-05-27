@@ -9,7 +9,7 @@ export default props => {
                 <td>{place.name}</td>
                 <td>{place.reference}</td>
                 <td>{place.maximumCapacityParticipants}</td>
-                <td>{place.public}</td>
+                <td>{place.public ? "yes" : "no"}</td>
                 <td>
                     <button type="button" title="Edite" className="btn btn-warning"
                         onClick={e => props.edit(place.id)}>
