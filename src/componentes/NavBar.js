@@ -3,9 +3,9 @@ import NavbarItem from './NavbarItem'
 
 function NavBar (props) {
     return (
-        <div className="navbar navbar-expand-lg fixed-top navbar-dark bg-primary"> 
+        <div className="navbar navbar-expand-lg fixed-top navbar-light bg-light"> 
             <div className="container"> 
-                <a href="/" className="navbar-brand">My Events</a> 
+                <a href="/" className="navbar-brand">Scheduling</a> 
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" 
                         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> 
                     <span className="navbar-toggler-icon"></span>
@@ -14,15 +14,15 @@ function NavBar (props) {
                     <ul className="navbar-nav">
                         <NavbarItem href="/login" label="Login" />
 
-                        <NavbarItem href="/listPlaces" label="Places" />
-                        <NavbarItem href="/createPlace" label="Create Place" />
-                        <NavbarItem href="/updatePlace/:id" label="Update Place" />
-                        <NavbarItem href="/deletePlace" label="Delete Place" />
+                        <NavbarItem href="/listPlaces" label="Locais" />
+                        <NavbarItem href="/createPlace" label="Criar Local" />
+                        <NavbarItem href="/updatePlace/:id" label="Atualizar Local" />
+                        <NavbarItem href="/deletePlace" label="Excluir Local" />
 
-                        <NavbarItem href="/listSports" label="Sports" />
-                        <NavbarItem href="/createSport" label="Create Sport" />
-                        <NavbarItem href="/updateSport/:id" label="Update Sport" />
-                        <NavbarItem href="/deleteSport" label="Delete Sport" />
+                        <NavbarItem href="/listSports" label="Esportes" />
+                        <NavbarItem href="/createSport" label="Criar Esporte" />
+                        <NavbarItem href="/updateSport/:id" label="Atualizar Esporte" />
+                        <NavbarItem href="/deleteSport" label="Excluir Esporte" />
                     </ul>
                 </div>
             </div>

@@ -8,11 +8,13 @@ export default props => {
                 <td>{sport.id}</td>
                 <td>{sport.name}</td>
                 <td>
-                    <button type="button" title="Edite" className="btn btn-warning"
+                    <button class="btn-table" type="button" title="Edite" className="btn btn-warning"
                         onClick={e => props.edit(sport.id)}>
+                            Atualizar
                     </button>
-                    <button type="button" title="Exclude" className="btn btn-danger"
+                    <button class="btn-table" type="button" title="Exclude" className="btn btn-danger"
                         onClick={e => props.delete(sport.id)}>
+                            Excluir
                     </button>
                 </td>
             </tr>
@@ -24,8 +26,8 @@ export default props => {
             <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody>

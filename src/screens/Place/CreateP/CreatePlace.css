@@ -1,3 +1,13 @@
-fieldset{
-    margin-top: 100px;
+button {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+fieldset {
+    margin-bottom: 30px;
+}
+  
+.form-check-input {
+    height: 30px;
+    width: 30px;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import './CreatePlace.css'
-import 'bootswatch/dist/vapor/bootstrap.css';
+import 'bootswatch/dist/minty/bootstrap.css';
 import FormGroup from "../../../componentes/FormGroup";
 import axios from "axios";
 
@@ -9,9 +9,9 @@ export default class CreatePlace extends React.Component {
         placeName:"",
         placeReference:"",
         capacityMax:"",
-        isPublic:""
+        isPublic: false
     }
-    
+
     post = () => {
         axios.post( 'http://localhost:8080/api/place',
             {
@@ -21,10 +21,23 @@ export default class CreatePlace extends React.Component {
                 public: this.state.isPublic
             }
         ).then( Response => {
-            console.log(Response)
+            alert("Local criado com sucesso!");
+            console.log(Response);
+            this.props.history.push("/listPlaces");
         }).catch( error => {
-            console.log(error.Response)
+            alert("Ocorreu um problema ao salvar o local, tente novamente!");
+            console.log(error.Response);
         });
+    }
+
+    handleChange = () => {
+        this.setState({
+            isPublic: !this.state.isPublic
+          });
+    }
+
+    cancel = () => {
+        this.props.history.push("/listPlaces");
     }
 
     render() {
@@ -32,25 +45,26 @@ export default class CreatePlace extends React.Component {
             <div>
                 <header className="App-header">
                     <fieldset>
-                        <legend><h2>Create Place</h2></legend>
-                        <FormGroup label='Place Name' htmlFor='lab01'>
-                            <input className="form-control form-control-lg" type="text" placeholder="name" id="lab01"
+                        <h1 class="title">Criar local</h1>
+                        <FormGroup label='Nome' htmlFor='lab01'>
+                            <input className="form-control" type="text" id="lab01"
                             onChange={(e) => {this.setState({placeName: e.target.value})}}/>
                         </FormGroup>
-                        <FormGroup label='Place Reference' htmlFor='lab02'>
-                            <input className="form-control form-control-lg" type="text" placeholder="reference" id="lab02"
+                        <FormGroup label='Referência' htmlFor='lab02'>
+                            <input className="form-control" type="text" id="lab02"
                             onChange={(e) => {this.setState({placeReference: e.target.value})}}/>
                         </FormGroup>
-                        <FormGroup label='Place Capacity' htmlFor='lab03'>
-                            <input className="form-control form-control-lg" type="text" placeholder="capacity" id="lab03"
+                        <FormGroup label='Capacidade total de pessoas' htmlFor='lab03'>
+                            <input className="form-control-small" type="number" id="lab03"
                             onChange={(e) => {this.setState({capacityMax: e.target.value})}}/>
                         </FormGroup>
-                        <FormGroup label='Public Place?' htmlFor='lab04'>
-                            <input className="form-control form-control-lg" type="text" placeholder="is public? (true/false)" id="lab04"
-                            onChange={(e) => {this.setState({isPublic: e.target.value})}}/>
+                        <FormGroup label='É público?' htmlFor='lab04'>
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" defaultChecked={this.state.isPublic} onChange={this.handleChange}/>
                         </FormGroup>
                         <br/>
-                        <button type="button" className="btn btn-primary btn-lg" onClick={this.post} >Create</button>
+                        <br/>
+                        <button onClick={this.post} type="button" className="btn btn-primary">Salvar</button>
+                        <button onClick={this.cancel} type="button" className="btn btn-danger">Cancelar</button>
                     </fieldset>
                 </header>
             </div>

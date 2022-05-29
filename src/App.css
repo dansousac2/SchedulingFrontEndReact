@@ -1,13 +1,16 @@
 .App {
   text-align: center;
+  background-color: #4b884b; 
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
+  background-color: #e0e9e0;
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
   display: inline-table;
-  min-width: 950px;
+  min-width: 1000px;
+  border-radius: 5px;
 }
 
 .legConfirmation{
@@ -19,5 +22,36 @@
 .table-hover {
   font-size: medium;
   border-style: groove;
-  background-color: darkslateblue;
+}
+
+label {
+  width: 100%;
+  color: #3a6d3a;
+}
+
+.title {
+  color: #4b884b;
+  margin-top: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.form-control {
+  margin-right: 50px;
+  margin-left: 50px;
+  max-width: 900px;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.form-control-small {
+  width: 125px;
+  font-size: 15px;
+  height: 40px;
+  margin: 15px 15px 15px 15px;
+  text-align: center;
+  border-radius: 5px;
 }

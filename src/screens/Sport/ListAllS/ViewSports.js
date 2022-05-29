@@ -1,6 +1,6 @@
 import React from "react";
 import "./ViewSports.css";
-import 'bootswatch/dist/vapor/bootstrap.css';
+import 'bootswatch/dist/minty/bootstrap.css';
 import { withRouter } from 'react-router-dom';
 import axios from "axios";
 import SportsTable from "../../../componentes/SportsTable";
@@ -26,6 +26,7 @@ class ViewSports extends React.Component {
         ).then( Response => {
             this.find();
         }).catch( error => {
+            alert("Ocorreu um erro ao excluir o esporte, tente novamente!");
             console.log(error.Response)
         });
     }
@@ -34,17 +35,24 @@ class ViewSports extends React.Component {
         this.props.history.push(`/updateSport/${sportId}`);
     }
 
+    create = () => {
+        this.props.history.push("/createSport");
+    }
+
     render(){
         return(
             <div>
                 <header className="App-header">
                     <fieldset>
+                    <h1 class="title">Esportes</h1>
                         <br/>
-                        <button type="button" className="btn btn-primary btn-lg" onClick={this.find} >Find All Sports</button>
+                        <button type="button" className="btn btn-primary" onClick={this.find} >Buscar esportes</button>
                         <br/>
                         <br/>
                         <SportsTable sports={this.state.sports} delete={this.delete} edit={this.edit} />
                     </fieldset>
+                    <br/>
+                    <button onClick={this.create} type="button" className="btn btn-primary">Cadastrar novo esporte</button>
                 </header>
             </div>
         )

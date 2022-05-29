@@ -25,7 +25,8 @@ class ViewPlaces extends React.Component {
         ).then( Response => {
             this.find();
         }).catch( error => {
-            console.log(error.Response)
+            alert("Ocorreu um erro ao excluir o local, tente novamente!");
+            console.log(error.Response);
         });
     }
 
@@ -33,17 +34,24 @@ class ViewPlaces extends React.Component {
         this.props.history.push(`/updatePlace/${placeId}`);
     }
 
+    create = () => {
+        this.props.history.push("/createPlace");
+    }
+
     render(){
         return(
             <div>
                 <header className="App-header">
                     <fieldset>
+                        <h1 class="title">Locais</h1>
                         <br/>
-                        <button type="button" className="btn btn-primary btn-lg" onClick={this.find} >Find All Places</button>
+                        <button type="button" className="btn btn-primary" onClick={this.find} >Buscar locais</button>
                         <br/>
                         <br/>
                         <PlacesTable places={this.state.places} delete={this.delete} edit={this.edit} />
                     </fieldset>
+                    <br/>
+                    <button onClick={this.create} type="button" className="btn btn-primary">Cadastrar novo local</button>
                 </header>
             </div>
         )

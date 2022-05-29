@@ -1,22 +1,29 @@
 import React from "react";
 import './DeletePlace.css'
-import 'bootswatch/dist/vapor/bootstrap.css';
+import 'bootswatch/dist/minty/bootstrap.css';
 import FormGroup from "../../../componentes/FormGroup";
 import axios from "axios";
 
 export default class DeletePlace extends React.Component {
 
     state = {
-        id:0
+        id: 0
     }
 
-    delResquest = () => {
-        axios.delete(`http://localhost:8080/api/event/delete/${this.state.id}`
-        ).then( Response => {
-            console.log(Response)
+    delete = () => {
+        axios.delete(`http://localhost:8080/api/place/${this.state.id}`
+        ).then( response => {
+            alert("Local excluído com sucesso!");
+            console.log(Response);
+            this.props.history.push("/listPlaces");
         }).catch( error => {
-            console.log(error.Response)
+            alert("Ocorreu um erro ao excluir o local, tente novamente!");
+            console.log(error.response)
         });
+    }
+
+    cancel = () => {
+        this.props.history.push("/listPlaces");
     }
 
     render() {
@@ -24,13 +31,15 @@ export default class DeletePlace extends React.Component {
             <div>
                 <header className="App-header">
                     <fieldset>
-                        <legend><h2>Delete Event</h2></legend>
-                        <FormGroup label='Event ID' htmlFor='lab00'>
-                            <input className="form-control form-control-lg" type="text" placeholder="ID" id="lab00"
+                        <h1 class="title">Excluir local</h1>
+                        <FormGroup label='ID' htmlFor='lab00'>
+                            <input className="form-control-small" type="number" id="lab00"
                             onChange={(e) => {this.setState({id: e.target.value})}}/>
                         </FormGroup>
                         <br/>
-                        <button type="button" className="btn btn-primary btn-lg" onClick={this.delResquest} >Delete</button>
+                        <br/>
+                        <button onClick={this.delete} type="button" className="btn btn-danger">Excluir</button>
+                        <button onClick={this.cancel} type="button" className="btn btn-light">Cancelar</button>
                     </fieldset>
                 </header>
             </div>
