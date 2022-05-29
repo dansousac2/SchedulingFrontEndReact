@@ -31,7 +31,7 @@ export default class DeleteSport extends React.Component {
             <div>
                 <header className="App-header">
                     <fieldset>
-                        <h1 class="title">Excluir esporte</h1>
+                        <h1 className="title">Excluir esporte</h1>
                         <FormGroup label='ID' htmlFor='lab00'>
                             <input className="form-control-small" type="number" id="lab00"
                             onChange={(e) => {this.setState({id: e.target.value})}}/>

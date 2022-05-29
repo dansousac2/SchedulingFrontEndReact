@@ -45,7 +45,7 @@ export default class CreatePlace extends React.Component {
             <div>
                 <header className="App-header">
                     <fieldset>
-                        <h1 class="title">Criar local</h1>
+                        <h1 className="title">Criar local</h1>
                         <FormGroup label='Nome' htmlFor='lab01'>
                             <input className="form-control" type="text" id="lab01"
                             onChange={(e) => {this.setState({placeName: e.target.value})}}/>
@@ -59,7 +59,7 @@ export default class CreatePlace extends React.Component {
                             onChange={(e) => {this.setState({capacityMax: e.target.value})}}/>
                         </FormGroup>
                         <FormGroup label='É público?' htmlFor='lab04'>
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" defaultChecked={this.state.isPublic} onChange={this.handleChange}/>
+                            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" defaultChecked={this.state.isPublic} onChange={this.handleChange}/>
                         </FormGroup>
                         <br/>
                         <br/>

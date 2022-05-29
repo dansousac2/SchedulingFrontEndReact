@@ -43,7 +43,7 @@ class ViewPlaces extends React.Component {
             <div>
                 <header className="App-header">
                     <fieldset>
-                        <h1 class="title">Locais</h1>
+                        <h1 className="title">Locais</h1>
                         <br/>
                         <button type="button" className="btn btn-primary" onClick={this.find} >Buscar locais</button>
                         <br/>

@@ -31,7 +31,7 @@ export default class DeletePlace extends React.Component {
             <div>
                 <header className="App-header">
                     <fieldset>
-                        <h1 class="title">Excluir local</h1>
+                        <h1 className="title">Excluir local</h1>
                         <FormGroup label='ID' htmlFor='lab00'>
                             <input className="form-control-small" type="number" id="lab00"
                             onChange={(e) => {this.setState({id: e.target.value})}}/>

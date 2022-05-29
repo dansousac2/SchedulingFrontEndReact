@@ -33,7 +33,7 @@ export default class CreateSport extends React.Component {
             <div>
                 <header className="App-header">
                     <fieldset>
-                    <h1 class="title">Criar esporte</h1>
+                    <h1 className="title">Criar esporte</h1>
                         <FormGroup label='Nome' htmlFor='lab01'>
                             <input className="form-control" type="text" id="lab01"
                             onChange={(e) => {this.setState({sportName: e.target.value})}}/>

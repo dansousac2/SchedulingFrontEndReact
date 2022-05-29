@@ -46,7 +46,7 @@ export default class UpdatePlace extends React.Component {
             <div>
                 <header className="App-header">
                     <fieldset>
-                        <h1 class="title">Atualizar local</h1>
+                        <h1 className="title">Atualizar local</h1>
                         <FormGroup label='ID' htmlFor='lab00'>
                             <input className="form-control-small" type="number" id="lab00"
                             onChange={(e) => {this.setState({id: e.target.value})}}/>
@@ -64,7 +64,7 @@ export default class UpdatePlace extends React.Component {
                             onChange={(e) => {this.setState({capacityMax: e.target.value})}}/>
                         </FormGroup>
                         <FormGroup label='É público?' htmlFor='lab04'>
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" defaultChecked={this.state.isPublic} onChange={this.handleChange}/>
+                            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" defaultChecked={this.state.isPublic} onChange={this.handleChange}/>
                         </FormGroup>
                         <br/>
                         <br/>
