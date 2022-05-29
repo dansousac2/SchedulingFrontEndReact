@@ -8,11 +8,11 @@ export default props => {
                 <td>{sport.id}</td>
                 <td>{sport.name}</td>
                 <td>
-                    <button className="btn-table btn btn-warning" type="button" title="Edite"
+                    <button className="btn btn-warning" type="button" title="Edite"
                         onClick={e => props.edit(sport.id)}>
                             Atualizar
                     </button>
-                    <button className="btn-table btn btn-danger" type="button" title="Exclude"
+                    <button className="btn btn-danger" type="button" title="Exclude"
                         onClick={e => props.delete(sport.id)}>
                             Excluir
                     </button>
