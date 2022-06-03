@@ -70,6 +70,7 @@ export default class CreateSc extends React.Component {
                             onChange={(e) => {this.setState({finishTime: e.target.value})}}/>
                         </FormGroup>
                         <br />
+                        <br />
                         <FormGroup label='Selecione o local' htmlFor='lab04' className="FieldSetSc">
                             <DDPlaces id="lab04" onChange={this.handleInputChangePlace} />
                         </FormGroup>
@@ -78,6 +79,7 @@ export default class CreateSc extends React.Component {
                         </FormGroup>
                         <br/>
                         <br/>
+                        <br />
                         <button onClick={this.post} type="button" className="btn btn-primary">Salvar</button>
                         <button onClick={this.cancel} type="button" className="btn btn-danger">Cancelar</button>
                     </fieldset>
