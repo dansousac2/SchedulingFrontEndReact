@@ -12,56 +12,22 @@ export default class CreateSc extends React.Component {
         date:"",
         startTime:"",
         finishTime:"",
-        placeId:"",
-        sportId:"",
-
-        //listPlaces:[],
-        listSports:[],
-
-        selectedOption: null,
-
+        selectedOptionPlace:"",
+        selectedOptionSport:"",
     }
-
-/*    findPlaces() {
-        axios.get( "http://localhost:8080/api/place"
-        ).then( Response => {
-            const places = Response.data;
-            this.setState({listPlaces: places});
-            console.log({"places":places});
-        }).catch(error => {
-            console.log(error.Response)
-        });
-    }*/
-
-    findSports() {
-        axios.get( "http://localhost:8080/api/sport"
-        ).then( Response => {
-            const sports = Response.data;
-            this.setState({listSports: sports});
-            console.log({"sports":sports});
-        }).catch(error => {
-            console.log(error.Response)
-        });
-    }
-
-    /*componentDidMount() {
-        this.findPlaces();
-        this.findSports();
-    }*/
 
     post = () => {
-        axios.post( 'http://localhost:',
+        axios.post( 'http://localhost:8080/api/scheduling',
             {
                 scheduledDate: this.state.date,
                 scheduledStartTime: this.state.startTime,
                 scheduledFinishTime: this.state.finishTime,
-                placeId: this.state.placeId,
-                sportId: this.state.sportId
+                placeId: this.state.selectedOptionPlace,
+                sportId: this.state.selectedOptionSport,
             }
         ).then( Response => {
             alert("Local criado com sucesso!");
             console.log(Response);
-            this.props.history.push("/listPlaces");
         }).catch( error => {
             alert("Ocorreu um problema ao salvar o local, tente novamente!");
             console.log(error.Response);
@@ -70,6 +36,19 @@ export default class CreateSc extends React.Component {
 
     cancel = () => {
         this.props.history.push("/");
+    }
+
+
+    handleInputChangePlace = (e) => {
+        this.setState({selectedOptionPlace: e.target.value}, () => {
+            console.log("Id do Local selecionado: ", this.state.selectedOptionPlace);
+        });
+    }
+
+    handleInputChangeSport = (e) => {
+        this.setState({selectedOptionSport: e.target.value}, () => {
+            console.log("Id do Esporte selecionado: ", this.state.selectedOptionSport);
+        });
     }
 
     render() {
@@ -92,10 +71,10 @@ export default class CreateSc extends React.Component {
                         </FormGroup>
                         <br />
                         <FormGroup label='Selecione o local' htmlFor='lab04' className="FieldSetSc">
-                            <DDPlaces/>
+                            <DDPlaces id="lab04" onChange={this.handleInputChangePlace} />
                         </FormGroup>
                         <FormGroup label='Selecione o esporte' htmlFor='lab05' className="FieldSetSc">
-                            <DDSports></DDSports>
+                            <DDSports id="lab05" onChange={this.handleInputChangeSport} />
                         </FormGroup>
                         <br/>
                         <br/>
