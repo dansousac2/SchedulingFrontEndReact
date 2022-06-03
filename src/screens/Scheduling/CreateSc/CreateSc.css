@@ -1,0 +1,21 @@
+.FieldSetSc {
+    display: inline-block;
+    width: 350px;
+}
+
+.noMargin {
+    margin-left: 20px;
+    max-width: 90%;
+    vertical-align: -webkit-baseline-middle;
+}
+
+.App-header fieldset select {
+    padding: 5px 0;
+    font-size: 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.3rem;
+}
+
+.App-header fieldset select:focus-visible {
+    outline: dotted 2px rgba(18, 182, 20, 0.2)
+}

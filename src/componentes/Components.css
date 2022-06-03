@@ -1,0 +1,7 @@
+.Card02 {
+    background-image: url("../assets/br.freepik.com.png");
+    height: 800px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    position: relative;
+}

@@ -23,6 +23,8 @@ function NavBar (props) {
                         <NavbarItem href="/createSport" label="Criar Esporte" />
                         <NavbarItem href="/updateSport/:id" label="Atualizar Esporte" />
                         <NavbarItem href="/deleteSport" label="Excluir Esporte" />
+
+                        <NavbarItem href="/createScheduling" label="Criar Agendamento" />
                     </ul>
                 </div>
             </div>
