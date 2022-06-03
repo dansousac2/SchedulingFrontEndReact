@@ -26,16 +26,17 @@ export default class CreateSc extends React.Component {
                 sportId: this.state.selectedOptionSport,
             }
         ).then( Response => {
-            alert("Local criado com sucesso!");
+            alert("Prática agendada com sucesso!");
             console.log(Response);
+            this.props.history.push("/listScheduling");
         }).catch( error => {
-            alert("Ocorreu um problema ao salvar o local, tente novamente!");
+            alert("Ocorreu um problema ao agendar a prática, tente novamente!");
             console.log(error.Response);
         });
     }
 
     cancel = () => {
-        this.props.history.push("/");
+        this.props.history.push("/listScheduling");
     }
 
 
@@ -56,7 +57,7 @@ export default class CreateSc extends React.Component {
             <div>
                 <header className="App-header">
                     <fieldset>
-                        <h1 className="title">Agendar</h1>
+                        <h1 className="title">Agendar prática</h1>
                         <FormGroup label='Data' htmlFor='lab01' className="FieldSetSc">
                             <input className="form-control noMargin" type="date" id="lab01"
                             onChange={(e) => {this.setState({date: e.target.value})}}/>
