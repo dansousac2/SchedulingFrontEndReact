@@ -16,14 +16,11 @@ function NavBar (props) {
 
                         <NavbarItem href="/listPlaces" label="Locais" />
                         <NavbarItem href="/createPlace" label="Criar Local" />
-                        <NavbarItem href="/updatePlace/:id" label="Atualizar Local" />
-                        <NavbarItem href="/deletePlace" label="Excluir Local" />
 
                         <NavbarItem href="/listSports" label="Esportes" />
                         <NavbarItem href="/createSport" label="Criar Esporte" />
-                        <NavbarItem href="/updateSport/:id" label="Atualizar Esporte" />
-                        <NavbarItem href="/deleteSport" label="Excluir Esporte" />
-
+                    
+                        <NavbarItem href="/listScheduling" label="Agendamentos" />
                         <NavbarItem href="/createScheduling" label="Criar Agendamento" />
                     </ul>
                 </div>

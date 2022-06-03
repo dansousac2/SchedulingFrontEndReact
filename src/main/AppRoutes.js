@@ -15,6 +15,7 @@ import DeleteSport from "../screens/Sport/DeleteS/DeleteSport";
 import ListSports from "../screens/Sport/ListAllS/ViewSports";
 
 import CreateScheduling from "../screens/Scheduling/CreateSc/CreateSc";
+import ListScheduling from "../screens/Scheduling/ListAllSchedulings/ViewScheduling";
 
 function AppRoutes() {
     return (
@@ -32,6 +33,7 @@ function AppRoutes() {
             <Route component = { UpdateSport } path="/updateSport/:id" />
             <Route component = { DeleteSport } path="/deleteSport" />
 
+            <Route component = { ListScheduling } path="/listScheduling" />
             <Route component = { CreateScheduling } path="/createScheduling" />
         </BrowserRouter>
     )

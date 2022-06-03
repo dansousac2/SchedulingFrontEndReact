@@ -1,6 +1,7 @@
 .FieldSetSc {
     display: inline-block;
-    width: 350px;
+    width: 250px;
+    margin-right: 25px;
 }
 
 .noMargin {

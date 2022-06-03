@@ -7,7 +7,6 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <label>Evento</label>
         <NavBar />
         <AppRoutes />
       </div>
