@@ -32,6 +32,7 @@ export default props => {
                     <th scope="col">Fim</th>
                     <th scope="col">Local</th>
                     <th scope="col">Esporte</th>
+                    <th scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody>
