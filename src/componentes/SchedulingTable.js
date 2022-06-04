@@ -1,4 +1,5 @@
 import React from "react";
+import GetName from "./GetPlaceOrSportName";
 
 export default props => {
 
@@ -9,8 +10,8 @@ export default props => {
                 <td>{scheduling.scheduledDate}</td>
                 <td>{scheduling.scheduledStartTime}</td>
                 <td>{scheduling.scheduledFinishTime}</td>
-                <td>{scheduling.placeId}</td>
-                <td>{scheduling.sportId}</td>
+                <GetName id={scheduling.placeId} label="place"/>
+                <GetName id={scheduling.sportId} label="sport"/>
                 <td>
                     <button type="button" title="Exclude" className="btn btn-danger"
                         onClick={e => props.delete(scheduling.id)}>
