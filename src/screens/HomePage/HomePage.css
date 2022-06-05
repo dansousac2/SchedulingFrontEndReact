@@ -1,4 +1,73 @@
-.set01{
-    margin-left: 80px;
-    text-align: justify;
+.HomePage1{
+  position: absolute;
+  width: 734px;
+  height: 1053px;
+  left: -30px;
+  top: -29px;
+
+  background: #6DCA41;
+
+}
+
+.HomePage1 h1{
+  position: absolute;
+  width: 419px;
+  height: 617px;
+  left: 145px;
+  top: 370px;
+
+  font-family: 'Imprima';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 93px;
+  line-height: 111px;
+  text-align: center;
+
+  color: #FFFFFF;   
+}
+  
+.HomePage1 h2{
+  position: absolute;
+  width: 314px;
+  height: 83px;
+  left: 1040px;
+  top: 320px;
+
+  font-family: 'Imprima';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 91px;
+  line-height: 111px;
+
+  color: #6DCA41; 
+}
+
+.HomePage1 h3{
+  position: absolute;
+  width: 478px;
+  height: 238px;
+  left: 835px;
+  top: 420px;
+
+  font-family: 'Imprima';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: right;
+
+  color: #6DCA41;
+
+}
+
+.HomePage1 button{
+  position: absolute;
+  width: 387px;
+  height: 51px;
+  left: 921px;
+  top: 635px;
+
+  background: #6DCA41;
+  border-radius: 20px;
+
 }
