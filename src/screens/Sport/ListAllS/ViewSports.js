@@ -9,6 +9,12 @@ class ViewSports extends React.Component {
     state = {
         sports:[]
     }
+    
+    componentDidMount() {
+        const params = this.props.match.params;
+        const id = params.id;
+        this.findById(id);
+    }
 
     find = () => {
         axios.get('http://localhost:8080/api/sport',
