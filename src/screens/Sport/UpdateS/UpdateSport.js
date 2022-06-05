@@ -10,6 +10,24 @@ export default class UpdateSport extends React.Component {
         sportName:""
     }
     
+    findById = (sportId) => {
+        axios.get(`http://localhost:8080/api/sport?id=${sportId}`)
+        .then( response =>
+            {
+                const sport = response.data[0];
+                const id = sport.id;
+                const sportName = sport.sportName;
+
+                this.setState({id, sportName});
+            }
+        ).catch( error =>
+            {
+                console.log(error.response);
+            }
+
+        );
+    }
+    
     put = () => {
         axios.put(`http://localhost:8080/api/sport/${this.state.id}`,
             {
