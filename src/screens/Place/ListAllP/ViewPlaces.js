@@ -8,6 +8,12 @@ class ViewPlaces extends React.Component {
     state = {
         places:[]
     }
+    
+    componentDidMount() {
+        const params = this.props.match.params;
+        const id = params.id;
+        this.findById(id);
+    }
 
     find = () => {
         axios.get('http://localhost:8080/api/place',
