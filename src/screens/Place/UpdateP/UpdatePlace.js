@@ -13,6 +13,27 @@ export default class UpdatePlace extends React.Component {
         isPublic: false
     }
     
+    findById = (placeId) => {
+        axios.get(`http://localhost:8080/api/place?id=${placeId}`)
+        .then( response =>
+            {
+                const place = response.data[0];
+                const id = place.id;
+                const placeName = place.placeName;
+                const placeReference = place.placeReference;
+                const capacityMax = place.capacityMax;
+                const isPublic = place.isPublic;
+
+                this.setState({id, placeName, placeReference, capacityMax, isPublic});
+            }
+        ).catch( error =>
+            {
+                console.log(error.response);
+            }
+
+        );
+    }
+    
     put = () => {
         axios.put(`http://localhost:8080/api/place/${this.state.id}`,
             {
