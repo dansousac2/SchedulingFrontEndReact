@@ -10,9 +10,7 @@ class ViewPlaces extends React.Component {
     }
     
     componentDidMount() {
-        const params = this.props.match.params;
-        const id = params.id;
-        this.findById(id);
+        this.find();
     }
 
     find = () => {
@@ -51,7 +49,6 @@ class ViewPlaces extends React.Component {
                     <fieldset>
                         <h1 className="title">Locais</h1>
                         <br/>
-                        <button type="button" className="btn btn-primary" onClick={this.find} >Buscar locais</button>
                         <br/>
                         <br/>
                         <PlacesTable places={this.state.places} delete={this.delete} edit={this.edit} />

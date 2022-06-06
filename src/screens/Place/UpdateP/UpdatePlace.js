@@ -14,14 +14,14 @@ export default class UpdatePlace extends React.Component {
     }
     
     findById = (placeId) => {
-        axios.get(`http://localhost:8080/api/place?id=${placeId}`)
+        axios.get(`http://localhost:8080/api/place/${placeId}`)
         .then( response =>
             {
                 const place = response.data[0];
                 const id = place.id;
-                const placeName = place.placeName;
-                const placeReference = place.placeReference;
-                const capacityMax = place.capacityMax;
+                const placeName = place.name;
+                const placeReference = place.reference;
+                const capacityMax = place.maximumCapacityParticipants;
                 const isPublic = place.isPublic;
 
                 this.setState({id, placeName, placeReference, capacityMax, isPublic});
@@ -34,6 +34,12 @@ export default class UpdatePlace extends React.Component {
         );
     }
     
+    componentDidMount() {
+        const params = this.props.match.params;
+        const id = params.id;
+        this.findById(id);
+    }
+
     put = () => {
         axios.put(`http://localhost:8080/api/place/${this.state.id}`,
             {
@@ -69,19 +75,19 @@ export default class UpdatePlace extends React.Component {
                     <fieldset>
                         <h1 className="title">Atualizar local</h1>
                         <FormGroup label='ID' htmlFor='lab00'>
-                            <input className="form-control-small" type="number" id="lab00"
+                            <input className="form-control-small" type="number" id="lab00" value={this.state.id} disabled={true}
                             onChange={(e) => {this.setState({id: e.target.value})}}/>
                         </FormGroup>
                         <FormGroup label='Nome' htmlFor='lab01'>
-                            <input className="form-control" type="text" id="lab01"
+                            <input className="form-control" type="text" id="lab01" value={this.state.placeName}
                             onChange={(e) => {this.setState({placeName: e.target.value})}}/>
                         </FormGroup>
                         <FormGroup label='Referência' htmlFor='lab02'>
-                            <input className="form-control" type="text" id="lab02"
+                            <input className="form-control" type="text" id="lab02" value={this.state.placeReference}
                             onChange={(e) => {this.setState({placeReference: e.target.value})}}/>
                         </FormGroup>
                         <FormGroup label='Capacidade total de pessoas' htmlFor='lab03'>
-                            <input className="form-control-small" type="number" id="lab03"
+                            <input className="form-control-small" type="number" id="lab03" value={this.state.capacityMax}
                             onChange={(e) => {this.setState({capacityMax: e.target.value})}}/>
                         </FormGroup>
                         <FormGroup label='É público?' htmlFor='lab04'>

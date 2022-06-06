@@ -6,19 +6,19 @@ import axios from "axios";
 
 export default class UpdateSport extends React.Component {
     state = {
-        id:0,
+        id: 0,
         sportName:""
     }
     
     findById = (sportId) => {
-        axios.get(`http://localhost:8080/api/sport?id=${sportId}`)
+        axios.get(`http://localhost:8080/api/sport/${sportId}`)
         .then( response =>
             {
                 const sport = response.data[0];
                 const id = sport.id;
-                const sportName = sport.sportName;
-
-                this.setState({id, sportName});
+                const name = sport.name;
+                
+                this.setState({id, name});
             }
         ).catch( error =>
             {
@@ -26,6 +26,12 @@ export default class UpdateSport extends React.Component {
             }
 
         );
+    }
+    
+    componentDidMount() {
+        const params = this.props.match.params;
+        const id = params.id;
+        this.findById(id);
     }
     
     put = () => {
@@ -54,11 +60,11 @@ export default class UpdateSport extends React.Component {
                     <fieldset>
                         <h1 className="title">Atualizar esporte</h1>
                         <FormGroup label='ID' htmlFor='lab00'>
-                            <input className="form-control-small" type="number" id="lab00"
+                            <input className="form-control-small" type="number" id="lab00" value={this.state.id} disabled={true}
                             onChange={(e) => {this.setState({id: e.target.value})}}/>
                         </FormGroup>
                         <FormGroup label='Nome' htmlFor='lab01'>
-                            <input className="form-control" type="text" id="lab01"
+                            <input className="form-control" type="text" id="lab01" value={this.state.sportName}
                             onChange={(e) => {this.setState({sportName: e.target.value})}}/>
                         </FormGroup>
                         <br/>

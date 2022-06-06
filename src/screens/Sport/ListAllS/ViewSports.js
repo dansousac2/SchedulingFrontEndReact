@@ -11,9 +11,7 @@ class ViewSports extends React.Component {
     }
     
     componentDidMount() {
-        const params = this.props.match.params;
-        const id = params.id;
-        this.findById(id);
+        this.find();
     }
 
     find = () => {
@@ -52,7 +50,6 @@ class ViewSports extends React.Component {
                     <fieldset>
                     <h1 className="title">Esportes</h1>
                         <br/>
-                        <button type="button" className="btn btn-primary" onClick={this.find} >Buscar esportes</button>
                         <br/>
                         <br/>
                         <SportsTable sports={this.state.sports} delete={this.delete} edit={this.edit} />
