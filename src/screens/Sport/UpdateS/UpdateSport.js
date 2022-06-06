@@ -14,11 +14,11 @@ export default class UpdateSport extends React.Component {
         axios.get(`http://localhost:8080/api/sport/${sportId}`)
         .then( response =>
             {
-                const sport = response.data[0];
+                const sport = response.data;
                 const id = sport.id;
                 const name = sport.name;
                 
-                this.setState({id, name});
+                this.setState({id: id, sportName: name});
             }
         ).catch( error =>
             {
@@ -34,6 +34,7 @@ export default class UpdateSport extends React.Component {
         this.findById(id);
     }
     
+
     put = () => {
         axios.put(`http://localhost:8080/api/sport/${this.state.id}`,
             {

@@ -6,7 +6,7 @@ import axios from "axios";
 
 export default class UpdatePlace extends React.Component {
     state = {
-        id:0,
+        id: 0,
         placeName:"",
         placeReference:"",
         capacityMax:"",
@@ -17,7 +17,7 @@ export default class UpdatePlace extends React.Component {
         axios.get(`http://localhost:8080/api/place/${placeId}`)
         .then( response =>
             {
-                const place = response.data[0];
+                const place = response.data;
                 const id = place.id;
                 const placeName = place.name;
                 const placeReference = place.reference;
