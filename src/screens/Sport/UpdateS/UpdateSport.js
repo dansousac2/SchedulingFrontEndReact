@@ -3,15 +3,21 @@ import './UpdateSport.css'
 import 'bootswatch/dist/minty/bootstrap.css';
 import FormGroup from "../../../componentes/FormGroup";
 import axios from "axios";
+import SportApiService from "../../../services/SportApiService";
 
 export default class UpdateSport extends React.Component {
     state = {
         id: 0,
         sportName:""
     }
+
+    constructor() {
+        super();
+        this.service = new SportApiService();
+    }
     
     findById = (sportId) => {
-        axios.get(`http://localhost:8080/api/sport/${sportId}`)
+        this.service.find(sportId)
         .then( response =>
             {
                 const sport = response.data;
@@ -36,7 +42,7 @@ export default class UpdateSport extends React.Component {
     
 
     put = () => {
-        axios.put(`http://localhost:8080/api/sport/${this.state.id}`,
+        this.service.update(this.state.id,
             {
                 name: this.state.sportName
             }

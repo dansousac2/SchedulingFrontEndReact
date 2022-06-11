@@ -4,10 +4,16 @@ import 'bootswatch/dist/minty/bootstrap.css';
 import { withRouter } from 'react-router-dom';
 import axios from "axios";
 import SportsTable from "../../../componentes/SportsTable";
+import SportApiService from "../../../services/SportApiService";
 
 class ViewSports extends React.Component {
     state = {
         sports:[]
+    }
+
+    constructor() {
+        super();
+        this.service = new SportApiService();
     }
     
     componentDidMount() {
@@ -15,8 +21,8 @@ class ViewSports extends React.Component {
     }
 
     find = () => {
-        axios.get('http://localhost:8080/api/sport',
-        ).then( Response => {
+        this.service.find('')
+        .then( Response => {
             const sports = Response.data;
             this.setState({sports});
             console.log(sports);
@@ -26,8 +32,8 @@ class ViewSports extends React.Component {
     }
 
     delete = (sportId) => {
-        axios.delete(`http://localhost:8080/api/sport/${sportId}`
-        ).then( Response => {
+        this.service.delete(sportId)
+        .then( Response => {
             this.find();
         }).catch( error => {
             alert("Ocorreu um erro ao excluir o esporte, tente novamente!");

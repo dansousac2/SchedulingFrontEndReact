@@ -3,14 +3,20 @@ import './CreateSport.css'
 import 'bootswatch/dist/minty/bootstrap.css';
 import FormGroup from "../../../componentes/FormGroup";
 import axios from "axios";
+import SportApiService from "../../../services/SportApiService";
 
 export default class CreateSport extends React.Component {
     state = {
         sportName:""
     }
+
+    constructor() {
+        super();
+        this.service = new SportApiService();
+    }
     
     post = () => {
-        axios.post( 'http://localhost:8080/api/sport',
+        this.service.create(
             {
                 name: this.state.sportName
             }
