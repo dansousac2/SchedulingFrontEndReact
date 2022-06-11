@@ -2,9 +2,9 @@ import React from "react";
 import './CreateSc.css'
 import 'bootswatch/dist/minty/bootstrap.css';
 import FormGroup from "../../../componentes/FormGroup";
-import axios from "axios";
 import DDPlaces from "../../../componentes/DropDown/DDPlaces";
 import DDSports from "../../../componentes/DropDown/DDSport";
+import SchedulingApiService from "../../../services/SchdulingApiService";
 
 export default class CreateSc extends React.Component {
     
@@ -16,8 +16,13 @@ export default class CreateSc extends React.Component {
         selectedOptionSport:"",
     }
 
+    constructor() {
+        super();
+        this.service = new SchedulingApiService();
+    }
+
     post = () => {
-        axios.post( 'http://localhost:8080/api/scheduling',
+        this.service.create(
             {
                 scheduledDate: this.state.date,
                 scheduledStartTime: this.state.startTime,

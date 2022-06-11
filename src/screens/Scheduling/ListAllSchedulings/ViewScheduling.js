@@ -2,17 +2,22 @@ import React from "react";
 import "./ViewScheduling.css";
 import 'bootswatch/dist/minty/bootstrap.css';
 import { withRouter } from 'react-router-dom';
-import axios from "axios";
 import SchedulingTable from "../../../componentes/SchedulingTable";
+import SchedulingApiService from "../../../services/SchdulingApiService";
 
 class ViewScheduling extends React.Component {
     state = {
         scheduling:[]
     }
 
+    constructor() {
+        super();
+        this.service = new SchedulingApiService();
+    }
+
     find = () => {
-        axios.get('http://localhost:8080/api/scheduling',
-        ).then( Response => {
+        this.service.find('')
+        .then( Response => {
             const scheduling = Response.data;
             this.setState({scheduling});
             console.log(scheduling);
@@ -22,8 +27,8 @@ class ViewScheduling extends React.Component {
     }
 
     delete = (schedulingId) => {
-        axios.delete(`http://localhost:8080/api/scheduling/${schedulingId}`
-        ).then( Response => {
+        this.service.delete(schedulingId)
+        .then( Response => {
             this.find();
         }).catch( error => {
             alert("Ocorreu um erro ao excluir o agendamento, tente novamente!");
