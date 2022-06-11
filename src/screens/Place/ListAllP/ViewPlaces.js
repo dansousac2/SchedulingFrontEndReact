@@ -1,12 +1,17 @@
 import React from "react";
 import "./ViewPlaces.css";
 import { withRouter } from 'react-router-dom';
-import axios from "axios";
 import PlacesTable from "../../../componentes/PlacesTable";
+import PlaceApiService from "../../../services/PlaceApiService";
 
 class ViewPlaces extends React.Component {
     state = {
         places:[]
+    }
+    
+    constructor() {
+        super();
+        this.service = new PlaceApiService();
     }
     
     componentDidMount() {
@@ -14,8 +19,8 @@ class ViewPlaces extends React.Component {
     }
 
     find = () => {
-        axios.get('http://localhost:8080/api/place',
-        ).then( Response => {
+        this.service.find('') // pega todos
+        .then( Response => {
             const places = Response.data;
             this.setState({places});
             console.log(places);
@@ -25,8 +30,8 @@ class ViewPlaces extends React.Component {
     }
 
     delete = (placeId) => {
-        axios.delete(`http://localhost:8080/api/place/${placeId}`
-        ).then( Response => {
+        this.service.delete(placeId)
+        .then( Response => {
             this.find();
         }).catch( error => {
             alert("Ocorreu um erro ao excluir o local, tente novamente!");

@@ -2,7 +2,7 @@ import React from "react";
 import './CreatePlace.css'
 import 'bootswatch/dist/minty/bootstrap.css';
 import FormGroup from "../../../componentes/FormGroup";
-import axios from "axios";
+import PlaceApiService from "../../../services/PlaceApiService";
 
 export default class CreatePlace extends React.Component {
     state = {
@@ -12,8 +12,13 @@ export default class CreatePlace extends React.Component {
         isPublic: false
     }
 
+    constructor() {
+        super();
+        this.service = new PlaceApiService();
+    }
+    
     post = () => {
-        axios.post( 'http://localhost:8080/api/place',
+        this.service.create(
             {
                 name: this.state.placeName,
                 reference: this.state.placeReference,

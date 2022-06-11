@@ -2,7 +2,7 @@ import React from "react";
 import './UpdatePlace.css'
 import 'bootswatch/dist/minty/bootstrap.css';
 import FormGroup from "../../../componentes/FormGroup";
-import axios from "axios";
+import PlaceApiService from "../../../services/PlaceApiService";
 
 export default class UpdatePlace extends React.Component {
     state = {
@@ -13,8 +13,13 @@ export default class UpdatePlace extends React.Component {
         isPublic: false
     }
     
+    constructor() {
+        super();
+        this.service = new PlaceApiService();
+    }
+
     findById = (placeId) => {
-        axios.get(`http://localhost:8080/api/place/${placeId}`)
+        this.service.find(placeId)
         .then( response =>
             {
                 const place = response.data;
@@ -26,12 +31,9 @@ export default class UpdatePlace extends React.Component {
 
                 this.setState({id, placeName, placeReference, capacityMax, isPublic});
             }
-        ).catch( error =>
-            {
-                console.log(error.response);
-            }
-
-        );
+        ).catch( error => {
+            console.log(error.response);
+        });
     }
     
     componentDidMount() {
@@ -41,7 +43,7 @@ export default class UpdatePlace extends React.Component {
     }
 
     put = () => {
-        axios.put(`http://localhost:8080/api/place/${this.state.id}`,
+        this.service.update(this.state.id,
             {
                 name: this.state.placeName,
                 reference: this.state.placeReference,
