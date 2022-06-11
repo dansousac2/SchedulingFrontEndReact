@@ -27,4 +27,20 @@ export default class SchedulingApiService extends ApiService {
         return this.get(`${params}`);
     }
     */
+
+    confirmedByPlaceId(placeId) {
+        return this.get(`/confirmedByPlace/${placeId}`);
+    }
+
+    confirmedBySport(sportId) {
+        return this.get(`/confirmedBySport/${sportId}`);
+    }
+
+    addParticipant(schedulingId, object) {
+        return this.patch(`/participation/add/${schedulingId}`, object);
+    }
+
+    removeParticipant(schedulingId, object) {
+        return this.patch(`/participation/remove/${schedulingId}`, object);
+    }
 }

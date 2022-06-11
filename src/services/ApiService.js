@@ -30,6 +30,11 @@ export default class ApiService {
         return httpClient.delete(url);
     }
 
+    patch(url, params) {
+        url = this.builderUrl(url);
+        return httpClient.patch(url, params);
+    }
+
     builderUrl(url) {
         return `${this.endpoint}${url}`;
     }
