@@ -25,6 +25,10 @@ const DDSports = (props) => {
             <option className="form-control" value="">Esporte</option>
             {sports.map( sport => {
                 const {id, name} = sport; //destructure ou algo similar
+                if(props.returnEntity) { //se quisermos retornar a entidade
+                    const stringOfObject = JSON.stringify(sport); //como saída no schedulingApiService estava tento apenas [Object object]. Reesolvido com o processo de conversão em string e construção em objeto.
+                    return (<option key={id} className="form-control" value={stringOfObject}>{name}</option>)
+                }
                 return (<option key={id} className="form-control" value={id}>{name}</option>)
             })}
         </select>

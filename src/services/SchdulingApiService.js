@@ -22,11 +22,9 @@ export default class SchedulingApiService extends ApiService {
         return this.get(`/${id}`);
     }
 
-    /* se usarmos filtros. Por hora pegamos apenas os objetos existentes no banco ou por ID.
-    find(params) {
-        return this.get(`${params}`);
+    findWithFilter(filters) {
+        return this.getWithFilter(`/useFilter${filters}`);
     }
-    */
 
     confirmedByPlaceId(placeId) {
         return this.get(`/confirmedByPlace/${placeId}`);

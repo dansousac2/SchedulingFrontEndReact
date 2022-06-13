@@ -1,0 +1,30 @@
+.filterOptions {
+    display: inline-block;
+    width: 250px;
+    margin-right: 25px;
+    padding: 5px 0;
+    font-size: 1.2rem;
+    border-radius: 0.3rem;
+}
+
+.cardScheduling {
+    background-color: #e0e9e0;
+}
+
+.form-sched {
+    width: 220px;
+    font-size: 15px;
+    height: 40px;
+    text-align: center;
+    border-radius: 0.3rem;
+    border: 1px solid #ced4da;
+    line-height: normal;
+  }
+
+  .inputId {
+    width: 125px;
+  }
+
+  .buttonFilter {
+    display: inline-block;
+  }

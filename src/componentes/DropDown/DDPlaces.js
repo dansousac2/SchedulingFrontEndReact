@@ -25,6 +25,10 @@ const DDPlaces = (props) => {
             <option className="form-control" value="">Local</option>
             {places.map( place => {
                 const {id, name} = place; //destructure ou algo similar da minha entity do BD - recuperando o que desejo.
+                if(props.returnEntity) { //se quisermos retornar a entidade
+                    const stringOfObject = JSON.stringify(place); //como saída no schedulingApiService estava tento apenas [Object object]. Reesolvido com o processo de conversão em string e construção em objeto.
+                    return (<option key={id} className="form-control" value={stringOfObject}>{name}</option>)
+                }
                 return (<option key={id} className="form-control" value={id}>{name}</option>)
             })}
         </select>

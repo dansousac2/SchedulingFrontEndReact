@@ -24,6 +24,11 @@ export default class ApiService {
         url = this.builderUrl(url);
         return httpClient.get(url);
     }
+
+    getWithFilter(url) {
+       url = this.builderUrl(url);
+       return httpClient.get(url);
+    }
     
     delete(url) {
         url = this.builderUrl(url);
