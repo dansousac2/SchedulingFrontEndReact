@@ -6,6 +6,8 @@ import DDPlaces from "../../../componentes/DropDown/DDPlaces";
 import DDSports from "../../../componentes/DropDown/DDSport";
 import SchedulingApiService from "../../../services/SchdulingApiService";
 
+import { showSuccessMessage, showErrorMessage } from '../../../componentes/Toastr';
+
 export default class CreateSc extends React.Component {
     
     state = {
@@ -31,11 +33,11 @@ export default class CreateSc extends React.Component {
                 sportId: this.state.selectedOptionSport,
             }
         ).then( Response => {
-            alert("Prática agendada com sucesso!");
+            showSuccessMessage("Prática agendada com sucesso!");
             console.log(Response);
             this.props.history.push("/listScheduling");
         }).catch( error => {
-            alert("Ocorreu um problema ao agendar a prática, tente novamente!");
+            showErrorMessage("Ocorreu um problema ao agendar a prática, tente novamente!");
             console.log(error.Response);
         });
     }

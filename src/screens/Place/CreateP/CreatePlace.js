@@ -80,8 +80,6 @@ export default class CreatePlace extends React.Component {
         
     }
 
-
-
     render() {
         return (
             <div>

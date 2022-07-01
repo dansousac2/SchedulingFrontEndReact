@@ -2,8 +2,9 @@ import React from "react";
 import './CreateSport.css'
 import 'bootswatch/dist/minty/bootstrap.css';
 import FormGroup from "../../../componentes/FormGroup";
-import axios from "axios";
 import SportApiService from "../../../services/SportApiService";
+
+import { showSuccessMessage, showErrorMessage } from '../../../componentes/Toastr';
 
 export default class CreateSport extends React.Component {
     state = {
@@ -21,11 +22,11 @@ export default class CreateSport extends React.Component {
                 name: this.state.sportName
             }
         ).then( Response => {
-            alert("Esporte criado com sucesso!");
+            showSuccessMessage("Esporte criado com sucesso!");
             console.log(Response);
             this.props.history.push("/listSports");
         }).catch( error => {
-            alert("Ocorreu um erro ao salvar o esporte, tente novamente!");
+            showErrorMessage("Ocorreu um erro ao salvar o esporte, tente novamente!");
             console.log(error.Response);
         });
     }

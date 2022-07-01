@@ -2,9 +2,10 @@ import React from "react";
 import "./ViewSports.css";
 import 'bootswatch/dist/minty/bootstrap.css';
 import { withRouter } from 'react-router-dom';
-import axios from "axios";
 import SportsTable from "../../../componentes/SportsTable";
 import SportApiService from "../../../services/SportApiService";
+
+import { showErrorMessage } from '../../../componentes/Toastr';
 
 class ViewSports extends React.Component {
     state = {
@@ -36,7 +37,7 @@ class ViewSports extends React.Component {
         .then( Response => {
             this.find();
         }).catch( error => {
-            alert("Ocorreu um erro ao excluir o esporte, tente novamente!");
+            showErrorMessage("Ocorreu um erro ao excluir o esporte, tente novamente!");
             console.log(error.Response)
         });
     }

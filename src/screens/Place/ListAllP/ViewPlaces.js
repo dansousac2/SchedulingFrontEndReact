@@ -3,7 +3,9 @@ import "./ViewPlaces.css";
 import { withRouter } from 'react-router-dom';
 import PlacesTable from "../../../componentes/PlacesTable";
 import PlaceApiService from "../../../services/PlaceApiService";
-import axios from "axios";
+
+import { showErrorMessage } from '../../../componentes/Toastr';
+
 
 class ViewPlaces extends React.Component {
     state = {
@@ -35,7 +37,7 @@ class ViewPlaces extends React.Component {
         .then( Response => {
             this.find();
         }).catch( error => {
-            alert("Ocorreu um erro ao excluir o local, tente novamente!");
+            showErrorMessage("Ocorreu um erro ao excluir o local, tente novamente!");
             console.log(error.Response);
         });
     }

@@ -2,8 +2,9 @@ import React from "react";
 import './UpdateSport.css'
 import 'bootswatch/dist/minty/bootstrap.css';
 import FormGroup from "../../../componentes/FormGroup";
-import axios from "axios";
 import SportApiService from "../../../services/SportApiService";
+
+import { showSuccessMessage, showErrorMessage } from '../../../componentes/Toastr';
 
 export default class UpdateSport extends React.Component {
     state = {
@@ -47,11 +48,11 @@ export default class UpdateSport extends React.Component {
                 name: this.state.sportName
             }
         ).then( Response => {
-            alert("Esporte atualizado com sucesso!");
+            showSuccessMessage("Esporte atualizado com sucesso!");
             console.log(Response);
             this.props.history.push("/listSports");
         }).catch(error => {
-            alert("Ocorreu um erro ao atualizar o esporte, tente novamente!");
+            showErrorMessage("Ocorreu um erro ao atualizar o esporte, tente novamente!");
             console.log(error.Response);
         });
     }

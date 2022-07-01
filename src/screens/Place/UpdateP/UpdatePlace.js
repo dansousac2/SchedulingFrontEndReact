@@ -4,6 +4,8 @@ import 'bootswatch/dist/minty/bootstrap.css';
 import FormGroup from "../../../componentes/FormGroup";
 import PlaceApiService from "../../../services/PlaceApiService";
 
+import { showSuccessMessage, showErrorMessage } from '../../../componentes/Toastr';
+
 export default class UpdatePlace extends React.Component {
     state = {
         id: 0,
@@ -51,11 +53,11 @@ export default class UpdatePlace extends React.Component {
                 public: this.state.isPublic
             }
         ).then(response => {
-            alert("Local atualizado com sucesso!");
+            showSuccessMessage("Local atualizado com sucesso!");
             console.log(response);
             this.props.history.push("/listPlaces");
         }).catch(error => {
-            alert("Ocorreu um problema ao atualizar o local, tente novamente!");
+            showErrorMessage("Ocorreu um problema ao atualizar o local, tente novamente!");
             console.log(error.response);
         });
     }

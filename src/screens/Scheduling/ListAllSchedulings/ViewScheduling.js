@@ -8,6 +8,8 @@ import FormGroup from "../../../componentes/FormGroup";
 import DDPlaces from "../../../componentes/DropDown/DDPlaces";
 import DDSports from "../../../componentes/DropDown/DDSport";
 
+import { showErrorMessage } from '../../../componentes/Toastr';
+
 class ViewScheduling extends React.Component {
     state = {
         scheduling:[],
@@ -39,7 +41,7 @@ class ViewScheduling extends React.Component {
         .then( Response => {
             this.find();
         }).catch( error => {
-            alert("Ocorreu um erro ao excluir o agendamento, tente novamente!");
+            showErrorMessage("Ocorreu um erro ao excluir o agendamento, tente novamente!");
             console.log(error.Response)
         });
     }
