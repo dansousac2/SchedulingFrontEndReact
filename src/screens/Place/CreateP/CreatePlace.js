@@ -4,6 +4,9 @@ import 'bootswatch/dist/minty/bootstrap.css';
 import FormGroup from "../../../componentes/FormGroup";
 import PlaceApiService from "../../../services/PlaceApiService";
 
+import { showSuccessMessage, showErrorMessage, showWarningMessage } from '../../../componentes/Toastr';
+
+
 export default class CreatePlace extends React.Component {
     state = {
         placeName:"",
@@ -17,24 +20,6 @@ export default class CreatePlace extends React.Component {
         this.service = new PlaceApiService();
     }
     
-    post = () => {
-        this.service.create(
-            {
-                name: this.state.placeName,
-                reference: this.state.placeReference,
-                maximumCapacityParticipants: this.state.capacityMax,
-                public: this.state.isPublic
-            }
-        ).then( Response => {
-            alert("Local criado com sucesso!");
-            console.log(Response);
-            this.props.history.push("/listPlaces");
-        }).catch( error => {
-            alert("Ocorreu um problema ao salvar o local, tente novamente!");
-            console.log(error.Response);
-        });
-    }
-
     handleChange = () => {
         this.setState({
             isPublic: !this.state.isPublic
@@ -44,6 +29,58 @@ export default class CreatePlace extends React.Component {
     cancel = () => {
         this.props.history.push("/listPlaces");
     }
+
+    validate = () => {
+        const errors = [];
+        
+        if(!this.state.placeName) {
+            errors.push('É obrigatório informar o nome do local!');
+        }
+        
+        if(!this.state.placeReference) {
+            errors.push('É obrigatório informar um local de referência!');
+        }
+        
+        if (!this.state.capacityMax){
+            errors.push('É óbrigatório informar a capacidade máxima do local!');
+        }
+
+        return errors;
+
+    }
+
+    post = () => {
+        const errors = this.validate();
+
+        if(errors.length > 0){
+            errors.forEach( (message, index) => {
+                showErrorMessage(message);
+            } );
+            return false;
+        }
+
+        this.service.create(
+             {
+                name: this.state.placeName,
+                reference: this.state.placeReference,
+                maximumCapacityParticipants: this.state.capacityMax,
+                public: this.state.isPublic
+             }
+        ) .then( response =>
+            {
+                showSuccessMessage("Local criado com Sucesso!");
+                this.props.history.push("/listPlaces");
+            }
+        ).catch(error =>
+            {
+                showErrorMessage("Ocorreu um problema ao salvar o local, tente novamente!");
+                console.log(error.response);
+            }
+        );
+        
+    }
+
+
 
     render() {
         return (

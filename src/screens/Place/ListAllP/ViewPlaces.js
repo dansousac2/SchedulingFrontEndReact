@@ -3,6 +3,7 @@ import "./ViewPlaces.css";
 import { withRouter } from 'react-router-dom';
 import PlacesTable from "../../../componentes/PlacesTable";
 import PlaceApiService from "../../../services/PlaceApiService";
+import axios from "axios";
 
 class ViewPlaces extends React.Component {
     state = {
