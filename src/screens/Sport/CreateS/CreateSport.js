@@ -15,8 +15,29 @@ export default class CreateSport extends React.Component {
         super();
         this.service = new SportApiService();
     }
+
+    validate = () => {
+        const errors = [];
+        
+        if(!this.state.sportName) {
+            errors.push('É obrigatório informar o nome do esporte!');
+        }
+
+        return errors;
+
+    }
     
+
     post = () => {
+        const errors = this.validate();
+
+        if(errors.length > 0){
+            errors.forEach( (message, index) => {
+                showErrorMessage(message);
+            } );
+            return false;
+        }
+
         this.service.create(
             {
                 name: this.state.sportName

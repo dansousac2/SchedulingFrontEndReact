@@ -42,7 +42,7 @@ export default class CreatePlace extends React.Component {
         }
         
         if (!this.state.capacityMax){
-            errors.push('É óbrigatório informar a capacidade máxima do local!');
+            errors.push('É obrigatório informar a capacidade máxima do local!');
         }
 
         return errors;
