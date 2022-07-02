@@ -23,7 +23,43 @@ export default class CreateSc extends React.Component {
         this.service = new SchedulingApiService();
     }
 
+    validate = () => {
+        const errors = [];
+        
+        if(!this.state.date) {
+            errors.push('É obrigatório informar a data em que acontecerá a prática esportiva!');
+        }
+        
+        if(!this.state.startTime) {
+            errors.push('É obrigatório informar o horário em que a prática esportiva começará!');
+        }
+        
+        if (!this.state.finishTime){
+            errors.push('É obrigatório informar o horário em que a prática esportiva terminará!');
+        }
+
+        if (!this.state.selectedOptionPlace){
+            errors.push('É obrigatório selecionar um local!');
+        }
+
+        if (!this.state.selectedOptionSport){
+            errors.push('É obrigatório selecionar um esporte!');
+        }
+
+        return errors;
+
+    }
+
     post = () => {
+        const errors = this.validate();
+
+        if(errors.length > 0){
+            errors.forEach( (message, index) => {
+                showErrorMessage(message);
+            } );
+            return false;
+        }
+
         this.service.create(
             {
                 scheduledDate: this.state.date,
