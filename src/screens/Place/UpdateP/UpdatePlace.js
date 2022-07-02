@@ -44,7 +44,35 @@ export default class UpdatePlace extends React.Component {
         this.findById(id);
     }
 
+    validate = () => {
+        const errors = [];
+        
+        if(!this.state.placeName) {
+            errors.push('É obrigatório informar o nome do local!');
+        }
+        
+        if(!this.state.placeReference) {
+            errors.push('É obrigatório informar um local de referência!');
+        }
+        
+        if (!this.state.capacityMax){
+            errors.push('É obrigatório informar a capacidade máxima do local!');
+        }
+
+        return errors;
+
+    }
+
     put = () => {
+        const errors = this.validate();
+
+        if(errors.length > 0){
+            errors.forEach( (message, index) => {
+                showErrorMessage(message);
+            } );
+            return false;
+        }
+        
         this.service.update(this.state.id,
             {
                 name: this.state.placeName,

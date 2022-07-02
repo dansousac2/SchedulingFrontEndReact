@@ -41,8 +41,27 @@ export default class UpdateSport extends React.Component {
         this.findById(id);
     }
     
+    validate = () => {
+        const errors = [];
+        
+        if(!this.state.sportName) {
+            errors.push('É obrigatório informar o nome do esporte!');
+        }
+
+        return errors;
+
+    }
 
     put = () => {
+        const errors = this.validate();
+
+        if(errors.length > 0){
+            errors.forEach( (message, index) => {
+                showErrorMessage(message);
+            } );
+            return false;
+        }
+
         this.service.update(this.state.id,
             {
                 name: this.state.sportName
