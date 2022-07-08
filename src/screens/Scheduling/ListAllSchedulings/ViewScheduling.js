@@ -16,8 +16,7 @@ class ViewScheduling extends React.Component {
 
         selectedPlace:"",
         selectedSport:"",
-        date:"",
-        id:""
+        date:""
     }
 
     constructor() {
@@ -69,7 +68,7 @@ class ViewScheduling extends React.Component {
     filterSearch = () => {
         let aplyFilters = "?";
 
-        const filters = [["id=", this.state.id], ["date=", this.state.date], ["placeId=", this.state.selectedPlace], ["sportId=", this.state.selectedSport]];
+        const filters = [["date=", this.state.date], ["placeId=", this.state.selectedPlace], ["sportId=", this.state.selectedSport]];
         for(let fil of filters) {
             if(fil[1] != "") {
                 aplyFilters += `${fil[0]}${fil[1]}&`;
@@ -104,10 +103,6 @@ class ViewScheduling extends React.Component {
                                     <FormGroup label='Data' htmlFor='lab01' className="filterOptions">
                                         <input className="form-sched" type="date" id="lab01"
                                         onChange={(e) => {this.setState({date: e.target.value})}}/>
-                                    </FormGroup>
-                                    <FormGroup label='ID' htmlFor='lab03' className="filterOptions">
-                                        <input className="form-sched inputId" type="number" id="lab03"
-                                        onChange={(e) => {this.setState({id: e.target.value})}}/>
                                     </FormGroup>
                                     <br/>
                                     <br/>
