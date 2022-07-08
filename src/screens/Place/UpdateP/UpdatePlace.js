@@ -85,7 +85,7 @@ export default class UpdatePlace extends React.Component {
             console.log(response);
             this.props.history.push("/listPlaces");
         }).catch(error => {
-            showErrorMessage("Ocorreu um problema ao atualizar o local, tente novamente!");
+            showErrorMessage(error.response.data);
             console.log(error.response);
         });
     }

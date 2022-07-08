@@ -71,7 +71,7 @@ export default class UpdateSport extends React.Component {
             console.log(Response);
             this.props.history.push("/listSports");
         }).catch(error => {
-            showErrorMessage("Ocorreu um erro ao atualizar o esporte, tente novamente!");
+            showErrorMessage(error.response.data);
             console.log(error.Response);
         });
     }

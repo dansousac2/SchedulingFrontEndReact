@@ -47,7 +47,7 @@ export default class CreateSport extends React.Component {
             console.log(Response);
             this.props.history.push("/listSports");
         }).catch( error => {
-            showErrorMessage("Ocorreu um erro ao salvar o esporte, tente novamente!");
+            showErrorMessage(error.response.data);
             console.log(error.Response);
         });
     }

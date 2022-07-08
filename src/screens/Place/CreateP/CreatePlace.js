@@ -73,7 +73,7 @@ export default class CreatePlace extends React.Component {
             }
         ).catch(error =>
             {
-                showErrorMessage("Ocorreu um problema ao salvar o local, tente novamente!");
+                showErrorMessage(error.response.data);
                 console.log(error.response);
             }
         );

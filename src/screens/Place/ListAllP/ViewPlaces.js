@@ -28,7 +28,7 @@ class ViewPlaces extends React.Component {
             this.setState({places});
             console.log(places);
         }).catch( error => {
-            console.log(error.Response)
+            console.log(error.response)
         });
     }
 
@@ -37,7 +37,7 @@ class ViewPlaces extends React.Component {
         .then( Response => {
             this.find();
         }).catch( error => {
-            showErrorMessage("Ocorreu um erro ao excluir o local, tente novamente!");
+            showErrorMessage(error.response.data);
             console.log(error.Response);
         });
     }

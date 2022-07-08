@@ -5,7 +5,7 @@ function NavBar (props) {
     return (
         <div className="navbar navbar-expand-lg fixed-top navbar-light bg-light"> 
             <div className="container"> 
-                <a href="/" className="navbar-brand">Scheduling</a> 
+                <a href="/" className="navbar-brand">SAPE</a> 
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" 
                         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> 
                     <span className="navbar-toggler-icon"></span>

@@ -41,7 +41,7 @@ class ViewScheduling extends React.Component {
         .then( Response => {
             this.find();
         }).catch( error => {
-            showErrorMessage("Ocorreu um erro ao excluir o agendamento, tente novamente!");
+            showErrorMessage(error.response.data);
             console.log(error.Response)
         });
     }

@@ -73,7 +73,7 @@ export default class CreateSc extends React.Component {
             console.log(Response);
             this.props.history.push("/listScheduling");
         }).catch( error => {
-            showErrorMessage("Ocorreu um problema ao agendar a prática, tente novamente!");
+            showErrorMessage(error.response.data);
             console.log(error.Response);
         });
     }
