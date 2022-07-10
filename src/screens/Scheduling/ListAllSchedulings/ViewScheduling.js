@@ -8,7 +8,7 @@ import FormGroup from "../../../componentes/FormGroup";
 import DDPlaces from "../../../componentes/DropDown/DDPlaces";
 import DDSports from "../../../componentes/DropDown/DDSport";
 
-import { showErrorMessage } from '../../../componentes/Toastr';
+import { showSuccessMessage, showErrorMessage } from '../../../componentes/Toastr';
 
 class ViewScheduling extends React.Component {
     state = {
@@ -84,6 +84,29 @@ class ViewScheduling extends React.Component {
         });
     }
 
+    addParticipant = (schedulingId) => {
+        this.service.addParticipant(schedulingId)
+        .then( Response => {  
+            showSuccessMessage("Você demonstrou interesse em participar da prática!");
+            console.log(Response);
+        }).catch( error => {
+            showErrorMessage(error.response.data);
+            console.log(error.Response);
+        });
+    }
+    
+    removeParticipant = (schedulingId) => {
+        this.service.removeParticipant(schedulingId)
+        .then( Response => {
+            showSuccessMessage("Interesse em participar da prática retirado!");
+            console.log(Response);
+        }).catch( error => {
+            showErrorMessage(error.response.data);
+            console.log(error.Response);
+        });
+    }
+    
+
     render(){
         return(
             <div>
@@ -124,3 +147,6 @@ class ViewScheduling extends React.Component {
 }
 
 export default withRouter(ViewScheduling);
+
+
+
