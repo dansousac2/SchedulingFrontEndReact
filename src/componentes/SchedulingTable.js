@@ -14,7 +14,7 @@ export default props => {
                 <GetName id={scheduling.placeId} label="place"/>
                 <GetName id={scheduling.sportId} label="sport"/>
                 <td> 
-                    <button type="button" title="Demonstrar Interesse" className="btn btn-danger"
+                    <button type="button" title="Demonstrar Interesse" className="btn btn-success"
                         onClick={e => props.addParticipant(scheduling.id)}>
                             Sim
                     </button>
@@ -54,3 +54,4 @@ export default props => {
         </table>
     )
 }
+
