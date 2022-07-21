@@ -1,5 +1,149 @@
 .set02{
-    max-width: 750px;
-    margin-left: 300px;
-    text-align: left;
+    position: absolute;
+    width: 742px;
+    height: 1024px;
+    left: -5px;
+    top: -36px;
+
+    background: #6DCA41;
+
 }
+
+.set02 h1{
+    position: absolute;
+    width: 419px;
+    height: 136px;
+    left: 157px;
+    top: 311px;
+    font-family: 'Imprima';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 128px;
+    line-height: 148px;
+    text-align: center;
+    
+    color: #FFFFFF;
+
+
+}
+
+.set02 h2{
+
+    position: absolute;
+    width: 616px;
+    height: 60px;
+    left: 79px;
+    top: 450px;
+
+    font-family: 'Imprima';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 32px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
+
+.set02 h3{ 
+    position: absolute;
+    width: 555px;
+    height: 69px;
+    left: 799px;
+    top: 180px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: left;
+    
+    color: #A3C1A6;
+    
+}
+
+.set02 h4{
+    position: absolute;
+    width: 205px;
+    height: 45px;
+    left: 762px;
+    top: 265px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    text-align: center;
+   
+    color: #A3C1A6;
+ 
+}
+
+.set02 h5 {
+    position: absolute;
+    width: 205px;
+    height: 45px;
+    left: 740px;
+    top: 400px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    text-align: center;
+   
+    color: #A3C1A6;
+}
+
+.set02 h6{
+    position: absolute;
+    width: 230px;
+    height: 76px;
+    left: 741px;
+    top: 104px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+    text-align: center;
+    
+    color: #6DCA41;
+}
+
+
+.set02 input {
+    position: absolute;
+    width: 476px;
+    height: 20px;
+    left: 751px;
+    top: 270px;
+    
+    background: #ece7e7;
+
+}
+
+.set02 button{
+    position: absolute;
+    width: 406px;
+    height: 48px;
+    left: 830px;
+    top: 535px;
+    
+    background: #6DCA41;
+    border-radius: 25px;
+    
+}
+
+
+
+
+
+
+ 
+ 
