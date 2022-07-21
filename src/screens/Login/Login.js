@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom';
 class Login extends React.Component {
 
     state = {
-        email:"",
+        registration:"",
         password:""
     }
 
@@ -19,18 +19,26 @@ class Login extends React.Component {
         return (
             <div>
                 <fieldset className="set02">
+                    <h1>SAPE</h1>
+                    <h2>Sistema de Agendamento de Práticas Esportivas</h2>
+                    <h3>Para entrar no sistema faça o login com a matrícula e a senha do Suap</h3>
+                    <h4>Matrícula</h4>
+                    <h5>Senha</h5>
                      <div className="form-group">
-                        <label className="form-label mt-4"><h4>Realizar Login</h4></label>
+                        <label className="form-label mt-4"><h6>Login</h6></label>
+                       
                         <div className="form-floating mb-3">
-                            <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com"
-                            onChange={(e) => {this.setState({email: e.target.value})}}/>
-                            <label htmlFor="floatingInput">Email address</label>
+                            <input type="registration" className="form-control" id="floatingInput" placeholder="Matrícula"
+                            onChange={(e) => {this.setState({registration: e.target.value})}}/>
+                           
                         </div>
+                        <fieldset className="set03"></fieldset>
                         <div className="form-floating">
                             <input type="password" className="form-control" id="floatingPassword" placeholder="Password"
                             onChange={(e) => {this.setState({password: e.target.value})}}/>
-                            <label htmlFor="floatingPassword">Password</label>
+                            
                         </div>
+                        
                         <br/>
                         <button type="button" className="btn btn-primary" onClick={this.madeLogin} >Login</button>
                     </div>
