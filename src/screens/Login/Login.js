@@ -4,6 +4,9 @@ import 'bootswatch/dist/minty/bootstrap.css';
 
 import { withRouter } from 'react-router-dom';
 
+import { AuthContext } from '../../main/SessionProvider';
+import { showErrorMessage, showSuccessMessage } from "../../componentes/Toastr";
+
 class Login extends React.Component {
 
     state = {
@@ -12,7 +15,24 @@ class Login extends React.Component {
     }
 
     madeLogin = () => {
-        
+        this.context.login(
+            this.state.registration,
+            this.state.password
+        ).then(user => 
+            {
+                if(user){
+                    showSuccessMessage('Bem vindo(a), ${user.name}');
+                    this.props.history.push("/createScheduling");
+    
+                }else{
+                    showErrorMessage('Login Inválido!');
+                }
+            }
+        ).catch( error =>
+            {
+                showErrorMessage('Ocorreu um erro! Autenticação sendo Processada:', error);
+            }
+        );
     }
 
     render() {
@@ -47,5 +67,5 @@ class Login extends React.Component {
         )
     }
 }
-
+Login.contexType = AuthContext;
 export default withRouter(Login)
